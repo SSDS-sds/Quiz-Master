@@ -1,6 +1,6 @@
-What is approximately the population of the UK?69 million, 20 thousand, 30 million, 500, 100 million
-Where does the game snakes and ladders originate from?UK, Germany, India, China
-What are bananas?vegetable, herb, berry, leaf
-How long is the great wall of China? 5 meters,  50 miles, 40 feet, 5000 miles
-What is the ranked happiest country in the world?Uk, South Africa, Finland, USA
-How many Earths could fill the sun? 10 billion, 100 million, 1 million, 1 hundred, 10 thousand
+What is approximately the population of the UK?,69 million, 20 thousand, 30 million, 500,1
+Where does the game snakes and ladders originate from?,UK, Germany, India, China,3
+What are bananas?,vegetable, herb, berry, leaf,3
+How long is the great wall of China?, 5 meters,  50 miles, 40 feet, 5000 miles,4
+What is the ranked happiest country in the world?,Uk, South Africa, Finland, USA,3
+How many Earths could fill the sun?, 10 billion, 100 million, 1 million, 1 hundred,3

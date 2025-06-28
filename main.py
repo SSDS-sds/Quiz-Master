@@ -53,10 +53,10 @@ def draw():
     screen.draw.textbox(f"{timer_left}", timer_box, color = "#0496FF", shadow = (0.8,0.8), scolor = "#006BA6")
     screen.draw.textbox(f"Score: {score}", score_box, color = "#49A078")
 
-    screen.draw.textbox("question", question_box, color = "#61C9A8", shadow = (0.8,0.8), scolor = "#B6C2D9")
+    screen.draw.textbox(question[0].strip(), question_box, color = "#61C9A8", shadow = (0.8,0.8), scolor = "#B6C2D9")
     index = 1
     for answer_box in answer_boxes:
-        screen.draw.textbox("answer", answer_box, color = "#7DBA84")
+        screen.draw.textbox(question[index].strip(), answer_box, color = "#7DBA84")
         index = index + 1
 
 def update():
@@ -86,5 +86,45 @@ def on_mouse_down(pos):
         if answer_box.collidepoint(pos):
             if index == int(question[5]):
                 correct_answer()
+            else:
+                game_over()
+        index = index + 1
+    if skip_box.collidepoint(pos):
+        skip_question()
+
+def correct_answer():
+    global score, question, timer_left, questions
+    score = score + 1
+    if questions:
+        question = read_next_question()
+        timer_left = 5
+    else:
+        game_over()
+
+def game_over():
+    global question, timer_left, is_game_over, msg
+    msg = f"GAME OVER! you answered {score} questions correctly!"
+    question = [msg, "-", "-", "-", "-", 5]
+    timer_left = 0
+    is_game_over = True
+
+def skip_question():
+    global question, timer_left
+    if questions and not is_game_over:
+        question = read_next_question()
+        timer_left = 5
+    else:
+        game_over()
+
+def update_time():
+    global timer_left
+    if timer_left:
+        timer_left = timer_left - 1
+    else:
+        game_over()
+
+read_question_file()
+question = read_next_question()
+clock.schedule_interval(update_time, 1)
 
 pgzrun.go()
